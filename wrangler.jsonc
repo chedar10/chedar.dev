@@ -1,8 +1,6 @@
 {
   "name": "chedardev",
   "compatibility_date": "2026-04-28",
-  "compatibility_flags": ["nodejs_compat"],
-  "main": "index.js",
   "assets": {
     "directory": "."
   }
