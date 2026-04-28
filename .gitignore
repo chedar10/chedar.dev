@@ -3,7 +3,6 @@ node_modules/
 
 # Wrangler
 .wrangler/
-wrangler.jsonc
 
 # Environment variables
 .env
