@@ -1,255 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YT Downloader</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chedar.dev</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: white;
+            }
+        }
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
-    :root {
-      --orange: #ff9d00;
-      --orange-dim: rgba(255,157,0,0.15);
-      --bg: #0a0a0a;
-      --panel: rgba(14,14,14,0.92);
-      --border: rgba(255,157,0,0.3);
-      --text: #ddd;
-      --muted: #666;
-      --mono: 'Share Tech Mono', monospace;
-      --display: 'Barlow Condensed', sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--mono);
-      display: flex;
-      justify-content: center;
-      padding: 40px;
-    }
-
-    .container { width: 100%; max-width: 640px; }
-
-    .header h1 {
-      font-family: var(--display);
-      font-size: 3rem;
-      font-weight: 900;
-      color: #fff;
-    }
-
-    .header span { color: var(--orange); }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--orange);
-      padding: 20px;
-      margin-top: 15px;
-    }
-
-    .input-row { display:flex; gap:10px; }
-
-    .url-input {
-      flex:1;
-      background:#111;
-      border:1px solid var(--border);
-      color:#fff;
-      padding:10px;
-    }
-
-    .fetch-btn, .dl-btn {
-      background:var(--orange);
-      border:none;
-      padding:10px 15px;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    #trackList {
-      max-height: 220px;
-      overflow-y: auto;
-      margin-top: 10px;
-      border: 1px solid var(--border);
-      padding: 10px;
-      font-size: 0.75rem;
-      background: rgba(0,0,0,0.2);
-    }
-
-    .track-row {
-      display:flex;
-      justify-content:space-between;
-      padding:5px 0;
-      border-bottom:1px solid rgba(255,157,0,0.1);
-    }
-
-    .status { font-weight:bold; }
-
-    .waiting { color:#666; }
-    .downloading { color:#ffaa33; }
-    .tagging { color:#66ccff; }
-    .done { color:#70c070; }
-    .failed { color:#f07070; }
-
-    .status-bar {
-      margin-top:10px;
-      padding:10px;
-      border:1px solid var(--border);
-      font-size:0.8rem;
-    }
-  </style>
+        header {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
-
-<div class="header">
-  <h1>YouTube <span>Downloader</span></h1>
-</div>
-
-<div class="panel">
-  <div class="input-row">
-    <input id="urlInput" class="url-input" placeholder="https://youtube.com/..." />
-    <button id="fetchBtn" class="fetch-btn">DOWNLOAD</button>
-  </div>
-  <div id="singleOptions" style="margin-top:10px;">
-  <label style="margin-right:10px;">Format:</label>
-  <select id="formatSelect" class="url-input" style="width:auto;">
-    <option value="mp3" selected>MP3 (audio)</option>
-    <option value="mp4">MP4 (video)</option>
-  </select>
-</div>
-</div>
-
-<div class="panel" id="playlistPanel" style="display:none;">
-  <div id="playlistTitle"></div>
-  <div id="playlistSub"></div>
-
-  <div id="trackList"></div>
-
-  <button id="dlPlaylistBtn" class="dl-btn">DOWNLOAD ZIP (MP3)</button>
-</div>
-
-<div class="status-bar" id="statusBar">Ready</div>
-
-</div>
-
-<script>
-const urlInput = document.getElementById('urlInput');
-const fetchBtn = document.getElementById('fetchBtn');
-const playlistPanel = document.getElementById('playlistPanel');
-const statusBar = document.getElementById('statusBar');
-const formatSelect = document.getElementById('formatSelect');
-const singleOptions = document.getElementById('singleOptions');
-
-function setStatus(msg){
-  statusBar.textContent = msg;
-}
-
-function updateTrack(index, state){
-  const el = document.getElementById('status-' + index);
-  if (!el) return;
-  el.className = 'status ' + state;
-  el.textContent = state;
-}
-
-fetchBtn.onclick = async () => {
-  const url = urlInput.value.trim();
-  if (!url) return setStatus("Enter URL");
-
-  playlistPanel.style.display = "none";
-
-  const isPlaylist = url.includes("list=");
-
-  // ─── SINGLE VIDEO ───
-  if (!isPlaylist) {
-    singleOptions.style.display = "block";
-
-    const format = formatSelect.value || "mp3"; // default MP3
-    setStatus(`Downloading ${format.toUpperCase()}...`);
-
-    try {
-      window.location.href = `/download?url=${encodeURIComponent(url)}&format=${format}`;
-    } catch (e) {
-      setStatus("Error: " + e.message);
-    }
-
-    return;
-  }
-
-  // ─── PLAYLIST ───
-  singleOptions.style.display = "none";
-  setStatus("Fetching playlist...");
-
-  try {
-    const res = await fetch(`/playlist-info?url=${encodeURIComponent(url)}`);
-    const data = await res.json();
-
-    document.getElementById('playlistTitle').textContent = data.title;
-    document.getElementById('playlistSub').textContent = data.count + " tracks";
-
-    const list = document.getElementById('trackList');
-
-    list.innerHTML = data.tracks.map(t => `
-      <div class="track-row">
-        <span>${t.index}. ${t.title}</span>
-        <span id="status-${t.index}" class="status waiting">waiting</span>
-      </div>
-    `).join('');
-
-    playlistPanel.style.display = "block";
-    setStatus("Ready");
-
-  } catch (e) {
-    setStatus("Error: " + e.message);
-  }
-};
-
-document.getElementById('dlPlaylistBtn').onclick = () => {
-  const url = urlInput.value.trim();
-  setStatus("Starting download...");
-
-  const es = new EventSource(`/download-playlist?url=${encodeURIComponent(url)}`);
-
-  es.onmessage = (e) => {
-    const data = JSON.parse(e.data);
-
-    if (data.type === "status") setStatus(data.message);
-
-    if (data.type === "track-start")
-      updateTrack(data.index, "downloading");
-
-    if (data.type === "track-meta")
-      updateTrack(data.index, "tagging");
-
-    if (data.type === "track-done")
-      updateTrack(data.index, "done");
-
-    if (data.type === "track-error")
-      updateTrack(data.index, "failed");
-
-    if (data.type === "done") {
-      es.close();
-      setStatus("ZIP ready");
-      window.location.href = `/download-zip?token=${data.token}`;
-    }
-
-    if (data.type === "error") {
-      es.close();
-      setStatus("Error: " + data.message);
-    }
-  };
-
-  es.onerror = () => {
-    es.close();
-    setStatus("Connection error");
-  };
-};
-</script>
-
+    <header>
+        <h1>Awesome and epic projects</h1>
+    </header>
 </body>
+
 </html>

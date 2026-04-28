@@ -2,10 +2,10 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-app.get('/favicon.ico', () => new Response(null, {status: 418}))
+app.get('/favicon.ico', () => new Response(null, {status: 218}))
 // Serving stuff
 app.get('*', async (c) => {
-    console.log(`Request for ${c.req.url}`)
+    console.log()
     const response = await c.env.ASSETS.fetch(c.req.raw)
 
     if (response.status < 400) {
