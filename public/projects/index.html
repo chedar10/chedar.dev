@@ -395,10 +395,9 @@
             if (overlay) {
                 overlay.classList.toggle("active");
             }
-
             await new Promise(resolve => setTimeout(resolve, 850));
-
             window.location.href = url;
+            overlay.classList.toggle("active");
         }
 
         function toggleMenu() {
