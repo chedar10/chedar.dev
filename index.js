@@ -1,11 +1,10 @@
 import { Hono } from 'hono'
+import { serveStatic } from 'hono/cloudflare-pages'
 
 const app = new Hono()
 
-app.get('/favicon.ico', () => new Response(null, {status: 218}))
 // Serving stuff
 app.get('*', async (c) => {
-    console.log()
     const response = await c.env.ASSETS.fetch(c.req.raw)
 
     if (response.status < 400) {

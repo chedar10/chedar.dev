@@ -5,31 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chedar.dev | About</title>
+    <link rel="shortcut icon" href="../favicon.png" type="image/png">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Wallpoet&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&family=Wallpoet&display=swap');
 
+        :root {
+            /* LIGHT THEME */
+            --bg: #ffffff;
+            --grid: #d1d5db;
+            --text: #242424;
+
+            --header-bg: rgba(222, 222, 222, 0.3);
+            --header-border: rgba(0, 0, 0, 0.1);
+
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-border: rgba(0, 0, 0, 0.2);
+            --btn-text: #505050;
+
+            --btn-hover-bg: rgba(72, 72, 72, 0.2);
+            --btn-hover-text: #1c1c1c;
+
+            --menu-bg: rgba(255, 255, 255, 0.55);
+            --menu-border: rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* DARK THEME */
+                --bg: #111111;
+                --grid: #333333;
+                --text: #e5e5e5;
+
+                --header-bg: rgba(40, 40, 40, 0.3);
+                --header-border: rgba(255, 255, 255, 0.1);
+
+                --btn-bg: rgba(255, 255, 255, 0.08);
+                --btn-border: rgba(255, 255, 255, 0.2);
+                --btn-text: #b7b7b7;
+
+                --btn-hover-bg: rgba(255, 255, 255, 0.2);
+                --btn-hover-text: #ffffff;
+
+                --menu-bg: rgba(40, 40, 40, 0.55);
+                --menu-border: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        /* RESET */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* BODY */
         body {
-            background-color: #ffffff;
-            background-image: radial-gradient(circle at 1px 1px, #d1d5db 1px, transparent 0);
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
             background-size: 20px 20px;
+            color: var(--text);
             padding-top: 100px;
+            font-family: 'Source Code Pro', monospace;
         }
 
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #111111;
-                background-image: radial-gradient(circle at 1px 1px, #333333 1px, transparent 0);
-                color: white;
-            }
-        }
-
+        /* HEADER */
         header {
             display: flex;
             align-items: center;
@@ -45,42 +85,45 @@
             padding: 10px;
             z-index: 1000;
 
-            background: rgba(40, 40, 40, 0.3);
-            backdrop-filter: blur(1px);
+            background: var(--header-bg);
+            backdrop-filter: blur(6px);
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--header-border);
         }
 
         header h1 {
-            font-family: 'Source Code Pro', monospace;
             font-size: 2rem;
-            color: #d3d3d3;
+            color: var(--text);
         }
 
+        header>a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* BUTTONS */
         .headerButtons {
-            backdrop-filter: blur(1px);
             display: flex;
             gap: 20px;
         }
 
         .headerButtons a {
-            font-family: 'Source Code Pro', monospace;
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--btn-bg);
             padding: 4px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--btn-border);
             border-radius: 5px;
-            color: #d3d3d3;
+            color: var(--btn-text);
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
 
         .headerButtons a:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--btn-hover-bg);
+            color: var(--btn-hover-text);
         }
 
-        /* HAMBURGER BUTTON */
+        /* HAMBURGER */
         .menuToggle {
             display: none;
             flex-direction: column;
@@ -91,11 +134,12 @@
         .menuToggle span {
             width: 25px;
             height: 3px;
-            background: #d3d3d3;
+            background: var(--text);
             border-radius: 3px;
             transition: 0.3s;
         }
 
+        /* MOBILE */
         @media (max-width: 768px) {
             header {
                 width: 90%;
@@ -103,18 +147,7 @@
 
             .menuToggle {
                 display: flex;
-                flex-direction: column;
-                cursor: pointer;
-                gap: 5px;
                 z-index: 1100;
-            }
-
-            .menuToggle span {
-                width: 25px;
-                height: 3px;
-                background: #d3d3d3;
-                border-radius: 3px;
-                transition: all 0.3s ease;
             }
 
             .menuToggle.active span:nth-child(1) {
@@ -137,16 +170,13 @@
                 flex-direction: column;
                 gap: 10px;
 
-                background: rgba(40, 40, 40, 0.55);
+                background: var(--menu-bg);
                 backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
 
                 border-radius: 10px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                border: 1px solid var(--menu-border);
 
                 padding: 10px;
-
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 
                 opacity: 0;
                 transform: translateY(-10px);
@@ -173,18 +203,15 @@
                 font-size: 1.3rem;
             }
         }
-
-        header > a {
-            text-decoration: none;
-            color: inherit;
-        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <a href="../"><h1>chedar.dev</h1></a>
+        <a href="../">
+            <h1>chedar.dev</h1>
+        </a>
 
         <div class="menuToggle" id="menuToggle" onclick="toggleMenu()">
             <span></span>
