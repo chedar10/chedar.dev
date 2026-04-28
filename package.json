@@ -1,27 +1,15 @@
 {
-  "name": "chedar.dev",
+  "name": "yt-downloader",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "YouTube to MP3/MP4 downloader",
+  "main": "downloader-server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git add . && git commit -m \"random commit\" && git push origin main && cls"
+    "start": "node downloader-server.js",
+    "deploy": "git add . && git commit -m 'Deploying' && git push origin main && cls"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chedar10/chedar.dev.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/chedar10/chedar.dev/issues"
-  },
-  "homepage": "https://github.com/chedar10/chedar.dev#readme",
   "dependencies": {
-    "@hono/node-server": "^2.0.0",
-    "hono": "^4.12.15",
-    "path": "^0.12.7"
+    "archiver": "^7.0.1",
+    "express": "^4.19.2",
+    "yt-dlp-exec": "^1.0.2"
   }
 }
