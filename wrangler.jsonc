@@ -4,6 +4,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "main": "index.js",
   "assets": {
-    "directory": "./public"
+    "directory": "./public",
+    "run_worker_first": true
   }
 }
