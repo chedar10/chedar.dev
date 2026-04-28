@@ -1,5 +1,4 @@
 import { Hono } from 'hono'
-import path from 'path'
 
 const app = new Hono()
 
@@ -13,7 +12,7 @@ app.get('/favicon.ico', (c) => {
 })
 
 app.notFound((c) => {
-  return c.sendFile(path.join('./public', '404.html'),'text/html')
+  return c.env.ASSETS.fetch(c.req.raw)
 })
 
 export default app
