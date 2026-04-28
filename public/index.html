@@ -5,42 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chedar.dev | Home</title>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Wallpoet&display=swap');   
-        
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Wallpoet&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-self: center;
-            justify-content: space-between;
-            position: fixed;
-            top: 0;
-            width: 95%;
-            padding: 10px;
-            z-index: 1000;
-            background: rgba(40, 40, 40, 0.3);
-            backdrop-filter: blur(2px);
-            border-radius: 10px;
-            margin-top: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        header h1 {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 2rem;
-            color: #d3d3d3;
-        }
-
         body {
             background-color: #ffffff;
             background-image: radial-gradient(circle at 1px 1px, #d1d5db 1px, transparent 0);
             background-size: 20px 20px;
+            padding-top: 100px;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -50,10 +29,40 @@
                 color: white;
             }
         }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: fixed;
+            top: 20px;
+
+            width: 95%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding: 10px;
+            z-index: 1000;
+
+            background: rgba(40, 40, 40, 0.3);
+            backdrop-filter: blur(6px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 2rem;
+            color: #d3d3d3;
+        }
+
         .headerButtons {
+            backdrop-filter: blur(6px);
             display: flex;
             gap: 20px;
         }
+
         .headerButtons a {
             font-family: 'Source Code Pro', monospace;
             text-decoration: none;
@@ -65,22 +74,133 @@
             font-size: 1.2rem;
             transition: all 0.3s ease;
         }
+
         .headerButtons a:hover {
             color: #ffffff;
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* HAMBURGER BUTTON */
+        .menuToggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menuToggle span {
+            width: 25px;
+            height: 3px;
+            background: #d3d3d3;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                width: 90%;
+            }
+
+            .menuToggle {
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                gap: 5px;
+                z-index: 1100;
+            }
+
+            .menuToggle span {
+                width: 25px;
+                height: 3px;
+                background: #d3d3d3;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+
+            .menuToggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .menuToggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menuToggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .headerButtons {
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                flex-direction: column;
+                gap: 10px;
+
+                background: rgba(40, 40, 40, 0.55);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+
+                padding: 10px;
+
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+                opacity: 0;
+                transform: translateY(-10px);
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+
+            .headerButtons.active {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+
+            .headerButtons a {
+                width: 100%;
+                text-align: center;
+                font-size: 1rem;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
 
 <body>
+
     <header>
         <h1>chedar.dev</h1>
-        <div class="headerButtons">
+
+        <div class="menuToggle" id="menuToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="headerButtons" id="menu">
             <a href="/projects/">Projects</a>
             <a href="/projects/">About Me</a>
             <a href="/projects/">Contact</a>
         </div>
     </header>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+            document.getElementById("menuToggle").classList.toggle("active");
+        }
+    </script>
+
 </body>
 
 </html>
