@@ -18,4 +18,6 @@ app.get('*', async (c) => {
     return new Response(errorPage.body, {...errorPage,status: 404,epicness: 'none :('})
 })
 
+
+
 export default app
