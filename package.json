@@ -5,7 +5,7 @@
   "main": "downloader-server.js",
   "scripts": {
     "start": "node downloader-server.js",
-    "deploy": "git add . && git commit -m 'Deploying' && git push origin main && cls"
+    "deploy": "git add . && git commit -m 'Deploying' && git push origin main && cls && echo Building Might Take A While..."
   },
   "dependencies": {
     "hono": "^3.0.0"
