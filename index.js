@@ -2,17 +2,16 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-// 1. API Routes
-app.get('/api/hewo', (c) => {
-  return c.json({ message: 'Hello World' })
-})
+app.get('/api/hewo', (c) => c.json({ message: 'Hello World' }))
 
-app.get('/favicon.ico', (c) => {
-  return c.json({ message: 'No favicon' })
-})
-
-app.notFound((c) => {
-  return c.env.ASSETS.fetch(c.req.raw)
+app.notFound(async (c) => {
+  const url = new URL(c.req.url)
+  url.pathname = '/404.html'
+  const response = await c.env.ASSETS.fetch(url.toString())
+  return new Response(response.body, {
+    ...response,
+    status: 404
+  })
 })
 
 export default app
