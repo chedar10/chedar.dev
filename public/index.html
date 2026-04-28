@@ -374,6 +374,54 @@
 
             transform: translateZ(0);
         }
+
+        /* I LOVE SCROLLBARS */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(200, 200, 200, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(120, 120, 120, 0.5);
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(200, 200, 200, 0.5) transparent;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: #1e1e1e;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.3);
+            }
+
+            * {
+                scrollbar-color: rgba(255, 255, 255, 0.2) #1e1e1e;
+            }
+        }
     </style>
 </head>
 
