@@ -62,9 +62,6 @@
 
         /* BODY */
         body {
-            background-color: var(--bg);
-            background-image: radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
-            background-size: 20px 20px;
             color: var(--text);
             padding-top: 100px;
             font-family: 'Source Code Pro', monospace;
@@ -363,11 +360,26 @@
                 gap: 15px;
             }
         }
+
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
+            background-size: 20px 20px;
+
+            transform: translateZ(0);
+        }
     </style>
 </head>
 
 <body>
-
+    <div class="bg"></div>
     <header>
         <a href="../">
             <h1>chedar.dev</h1>
@@ -437,7 +449,7 @@
                 </div>
                 <div>
                     <h4>Backend</h4>
-                    <p>Node.js, Express, Hono (But it's SOOOO different from express)</p>
+                    <p>Node.js, Express, Hono (But it's basically express)</p>
                 </div>
                 <div>
                     <h4>Tools</h4>
@@ -451,7 +463,8 @@
             <h3>About</h3>
             <p>
                 I like Mario, Pizza, Gaming, CS:GO/cs2, and making cool stuff
-                I went to <a href="https://hackingtons.com/" style="text-decoration: underline; color: inherit;">Hackingtons</a> to learn web dev.
+                I went to <a href="https://hackingtons.com/"
+                    style="text-decoration: underline; color: inherit;">Hackingtons</a> to learn web dev.
                 r/node is an awesome subreddit.
             </p>
         </section>
@@ -467,6 +480,12 @@
             document.getElementById("menu").classList.toggle("active");
             document.getElementById("menuToggle").classList.toggle("active");
         }
+        window.addEventListener("scroll", () => {
+            const scrollY = window.scrollY;
+
+            document.querySelector(".bg").style.backgroundPosition =
+                `0px ${scrollY * -0.5}px`;
+        });
     </script>
 
 </body>
