@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chedar.dev | 404</title>
+
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&family=Wallpoet&display=swap');
+
+        :root {
+            --bg: #ffffff;
+            --grid: #d1d5db;
+            --text: #242424;
+            --header-bg: rgba(222, 222, 222, 0.3);
+            --header-border: rgba(0, 0, 0, 0.1);
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-border: rgba(0, 0, 0, 0.2);
+            --btn-text: #505050;
+            --btn-hover-bg: rgba(72, 72, 72, 0.2);
+            --btn-hover-text: #1c1c1c;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111111;
+                --grid: #333333;
+                --text: #e5e5e5;
+                --header-bg: rgba(40, 40, 40, 0.3);
+                --header-border: rgba(255, 255, 255, 0.1);
+                --btn-bg: rgba(255, 255, 255, 0.08);
+                --btn-border: rgba(255, 255, 255, 0.2);
+                --btn-text: #b7b7b7;
+                --btn-hover-bg: rgba(255, 255, 255, 0.2);
+                --btn-hover-text: #ffffff;
+            }
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            color: var(--text);
+            font-family: 'Source Code Pro', monospace;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+
+        main {
+            text-align: center;
+            padding: 40px;
+            background: var(--header-bg);
+            border: 1px solid var(--header-border);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        h1 { font-size: 5rem; margin-bottom: 0; opacity: 0.9; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; font-weight: 400; }
+
+        .terminal {
+            background: rgba(0,0,0,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            border: 1px solid var(--header-border);
+        }
+
+        .terminal span.err { color: #ff5f56; } 
+        .terminal span.path { color: #50fa7b; } /* Dracula-style green for paths */
+
+        .home-btn {
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--btn-border);
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .home-btn:hover {
+            background: var(--btn-hover-bg);
+            color: var(--btn-hover-text);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg"></div>
+
+    <main>
+        <h1>404</h1>
+        <h2>Route Not Found</h2>
+
+        <div class="terminal">
+            <p>$ fetch --resource "<span id="current-path" class="path">/</span>"</p>
+            <p><span class="err">Error:</span> PAGE_LONG_GONE_:(</p>
+            <p>>echo "Mason probably broke something."</p>
+        </div>
+
+        <a href="/" class="home-btn">Return to Safety</a>
+    </main>
+
+    <script>
+        const cleanPath = window.location.pathname;
+        document.getElementById('current-path').innerText = cleanPath;
+
+        window.addEventListener("mousemove", (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            document.querySelector(".bg").style.backgroundPosition = 
+                `${x * 20}px ${y * 20}px`;
+        });
+    </script>
+</body>
+
+</html>

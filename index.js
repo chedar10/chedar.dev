@@ -28,9 +28,15 @@ app.get('*', async (c) => {
 
     const url = new URL(c.req.url)
     url.pathname = '/404.html'
-    const errorPage = await c.env.ASSETS.fetch(url.toString())
+    const errorPage = await c.env.ASSETS.fetch(new Request(url.toString()))
 
-    return new Response(errorPage.body, {...errorPage,status: 404,epicness: 'none :('})
+    return new Response(errorPage.body, {
+        status: 404,
+        headers: {
+            ...errorPage.headers,
+            'epicness': 'none :('
+        }
+    })
 })
 
 
