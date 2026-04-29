@@ -61,9 +61,6 @@
 
         /* BODY */
         body {
-            background-color: var(--bg);
-            background-image: radial-gradient(circle at 1px 1px, var(--grid) 1px, transparent 0);
-            background-size: 20px 20px;
             color: var(--text);
             padding-top: 100px;
             font-family: 'Source Code Pro', monospace;
@@ -86,7 +83,7 @@
             z-index: 1000;
 
             background: var(--header-bg);
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(2px);
             border-radius: 10px;
             border: 1px solid var(--header-border);
         }
@@ -123,7 +120,7 @@
             color: var(--btn-hover-text);
         }
 
-        /* HAMBURGER */
+        /* Roblox *HAMBURGER* sfx */
         .menuToggle {
             display: none;
             flex-direction: column;
@@ -139,7 +136,6 @@
             transition: 0.3s;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
             header {
                 width: 90%;
@@ -171,7 +167,7 @@
                 gap: 10px;
 
                 background: var(--menu-bg);
-                backdrop-filter: blur(12px);
+                backdrop-filter: blur(10px);
 
                 border-radius: 10px;
                 border: 1px solid var(--menu-border);
@@ -195,7 +191,7 @@
                 text-align: center;
                 font-size: 1rem;
                 padding: 8px;
-                backdrop-filter: blur(2px);
+                backdrop-filter: blur(10px);
             }
         }
 
@@ -204,6 +200,162 @@
                 font-size: 1.3rem;
             }
         }
+
+        /* MAIN STUFF */
+        main {
+            width: 95%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* Hero But Idk why ppl call it a hero, i mean it didn't save anybody. */
+        .hero {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .heroButtons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .heroButtons a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid var(--btn-border);
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            transition: 0.3s;
+        }
+
+        .heroButtons a:hover {
+            background: var(--btn-hover-bg);
+            color: var(--btn-hover-text);
+        }
+
+        .projects h3,
+        .skills h3,
+        .about h3,
+        .cta h3 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .projectGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .projectCard {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--header-border);
+            background: var(--header-bg);
+            backdrop-filter: blur(2px);
+            transition: 0.3s;
+        }
+
+        .projectCard h4 {
+            margin-bottom: 8px;
+        }
+
+        .projectCard p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .projectCard span {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .projectCard a {
+            text-decoration: none;
+            font-size: 0.9rem;
+            color: var(--btn-text);
+        }
+
+        .skillGroups {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skillGroups div {
+            background: var(--header-bg);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid var(--header-border);
+            backdrop-filter: blur(2px);
+        }
+
+        .about p {
+            max-width: 600px;
+            opacity: 0.80;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 12px;
+            background: var(--header-bg);
+            border: 1px solid var(--header-border);
+            backdrop-filter: blur(1px);
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            padding: 5px 9px;
+            border-radius: 6px;
+            border: 1px solid var(--btn-border);
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            transition: 0.3s;
+        }
+
+        .cta a:hover {
+            background: var(--btn-hover-bg);
+            color: var(--btn-hover-text);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                gap: 50px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .skillGroups {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
         .bg {
             position: fixed;
             top: 0;
@@ -218,6 +370,7 @@
 
             transform: translateZ(0);
         }
+
         /* I LOVE SCROLLBARS */
         ::-webkit-scrollbar {
             width: 12px;
@@ -265,6 +418,43 @@
                 scrollbar-color: rgba(255, 255, 255, 0.2) #1e1e1e;
             }
         }
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid var(--header-border);
+            border-bottom: 1px solid var(--header-border);
+            padding: 10px 0;
+            background: var(--header-bg);
+            backdrop-filter: blur(2px);
+        }
+
+        .marqueeTrack {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee span {
+            white-space: nowrap;
+            font-size: 0.95rem;
+            opacity: 0.7;
+            padding-right: 50px;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee:hover .marqueeTrack {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
@@ -288,7 +478,182 @@
             <a href="/contact/">Contact</a>
         </div>
     </header>
+    <main>
+        <section class="hero">
+            <h2>Contact</h2>
+            <p>If you somehow ended up here, hi.</p>
+            <p>You can email me if you want (But i rarely check my email unless i'm getting some sort of verification
+                code)</p>
+            <h3><a href="mailto:masonmckeever@chedar.dev">masonmckeever@chedar.dev</a></h3>
+        </section>
+        <section class="skills">
+            <h3>Please Don’t Email Me About</h3>
+            <div class="skillGroups">
+                <div>Crypto scams</div>
+                <div>"Grow your brand" offers (Like, come on.)</div>
+                <div>Homework help</div>
+                <div>You know what Homework help seems like a good idea. But i guess you can just go to <a
+                        href="https://homework.cpm.org/" style="text-decoration: underline; color: inherit">cpm's
+                        offical one</a>.</div>
+                <div>Weird business ideas at 3am</div>
+            </div>
+        </section>
+        <!-- No <marquee>? -->
 
+        <!-- ÆÆÆÆÆÆÆÅÅÅÅÅÅÅÅgggggGGGGGGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÇÇÇÇÇÇÇÇÞÇÇÇÇÇÞÞÇÇÞÇÇÞÞÇÇÇÞÞÇÞÞÞÞÞÞÞÞÞÞÞÞÞÇÞÞÇÇÇÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞÞÞGGGGGggggÅÅÅÅÅÅÆÆÆ 
+        ÆÆÆÆÆÅÅÅÅÅÅÅÅggggggGGGGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÇÇÇÇÇÞÇÞÞÇÇÇÇÇÞÇÇÇÞÇÇÞÇÇÇÇÇÞÇÞÇÇÇÇÇÇÇÇÇÇÞÇÇÞÇÇÞÇÇÞÇÇÇÇÇÇÇÇÇÇÇÇÇÞÇÇÞÇÞÞÇÇÞÇÇÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞGGGGGgggggÅÅÅÅÆÆÆ 
+        ÆÆÆÅÅÅÅÅÅÅÅÅgggggGGGGGGÞÞÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞGGGGGGgggÅÅÅÅÅÅÅ 
+        ÆÅÅÅÅÅÅÅÅÅggggggGGGGGGÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666666666ÇÇÇÇÞÞÞÞÞÞGGGGgÅÅÅÅÅÅÅÅ 
+        ÅÅÅÅÅÅÅÅggggggGGGGGGGÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6Ç666666666666ÇÇÇÇÞÞÞÞÞÞGGggÅgggÅÅÅÅ 
+        ÅÅÅÅÅÅÅggggggGGGGGGÞÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇ666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666666666üü66666ÇÇÇÇÞÞÞÞGggggggggÅÅÅ 
+        ÅÅÅÅÅÅgggggGGGGGGGÞÞÞÞÇÇÇ6666ÇÇÇÇ66666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6Ç666666üüüüü6ü666ÇÇÇÇÇÇÞGGgGGGGggggÅÅ 
+        ÅÅÅÅÅgggggGGGGGGÞÞÞÞGÞÇÇ6666ÇÇÇ666666ÇÇÇÇÇÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇÇ6ÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6Ç6Ç6666666ü6üüüüüü6666ÇÇÇÇÇÞGGGÞÞGGGGggggg 
+        ÅÅÅggggggGGGGGGÞÞGGGGÞÇ66666Ç6666666666666666666Ç6ÇÇÇÇÇÇÇ66666666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666Ç6666666üüüüüüüü666ÇÇÇÇÇÇGGÞÞÞÞGGGGgggg 
+        ÅÅggggggGGGGGGGGGGGGÞÇ66666Ç66666666666666666666666ÇÇ6ÇÇÇ66666666666666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6666666666üüüüüüüüüü66666ÇÇÇÇÞÇÇÞÞÞÞGGGGggg 
+        ÅgggggGGGGGGGGGGGGGGÞÇ666666ü6666666666üü6666666Ç6666ÇÇ66Ç666666666666666Ç6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6ÇÇ6Ç66666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666666üüÏüüüüüü66666666ÇÇ6ÇÇÇÞÞÞÞGGGGGgg 
+        ggggggGGGGGÞGGGGGGGGÞÇ6666üüü66666666üüüüü66666666666666666666666666666666666666666666666666666Ç6ÇÇ66666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666üüüüüüüüüü666666666666ÇÇÇÇÞÞÞÞÞGGGGg 
+        ggggggggggggggGÞGGGGÇ6666üüü6666666üüüüüüü66666666666666666666666666666666666666666666666666666ÇÇ6Ç6ÇÇ6Ç6ÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666üüüüüüüüüüüü666666666666ÇÇÇÇÞÞÞÞÞGGGGg 
+        ggggggggGGGGGGGGGGgGÇ666üü6666666üüüüüüüüü6666666666666666666666666666666666666666666666666666666666Ç6Ç66ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66Ç66666666üÏüüüüüüüüüü66666666666ÇÇÇÇÇÞÞÞÞGGGGG 
+        gggggggGGGGGGGGGGgGÞÇ666ü666666üüüÏÏüÏüüü66666666666666666666666666666666666666666666666666666666666666Ç6Ç6ÇÇÇÇÇÇÇÇÇÇÇ6Ç6666666666666üüüüüüüüüüü6666666666üÇÇÇÇÇÇÞÞÞÞÞGGGG 
+        GGGGGGGGGGGGGGGGggGÞÇ66ü666666üüÏÏÏÏÏüüüü66666666666666666666666666666666666666666666666666666666666666Ç666666ÇÇ6ÇÇÇÇÇÇÇ6ÇÇ666666666üüüüüüüüüüü66üü6666666üÇÇÇÇÇÇÇÞÞÞÞÞGGG 
+        ggggggGGgGggggggggGÞ66666666üüÏÏÏÏÏüüüüü666666666666666666666666666666666666666666666666666666666666666666ÇÇ6666666ÇÇ6ÇÇ66666666üüüüüüüüüüü66üüüüüü6üüüüüü6ÇÇÇÇÇÇÞÞÞÞÞÞGGG 
+        ÅggGggggggggGgggggGÇ666666üüÏÏÏÏÏÏüüüüü6666666666ü666666666ü666666666666666666666666666666666666666666666666ÇÇ6ÇÇ66Ç666666666666üüÏÏüüüüüüüüü6üü66ü66üü6üü6ÇÇÇÇÇÇÞÞÞÞÞÞÞGG 
+        ÅggGGGGgggggggggggGÇ66666üÏÏÏÏÏÏÏÏüüü66666666666üüüüüüüüüüüüüüüüüü666666666666666666666666666666666666666666666666666ÇÇ666666666üüÏÏÏüüüüüüü6üüü6üüüüüüüüüÇÇÇÇÇÇÇÇÞÞÞÞÞÞGG 
+        ÅgggGGGgggggggggggÞ6666üüÏÏÏÏzzÏÏüüü66666666666üüüüüüüüüüüüüüüüüüüüüüü66üü666666666666666666666666666666666666666666666666666666üüüÏÏüüüüüüüüüüüüüüüüüüüüüÇÇÇÇÇÇÞÞÞÞÞÞÞÞÞG 
+        ÅÅgggGGgggggggggggÞ66üüüÏÏzÏÏzÏÏüüü6666666666666üüüüüüüüüüüüüüüüüüüüüüü6ü6ü6ü666ü666666666666666666666666666666666666666666666üüüüüüüüüüüüüüüüüüüüüüüüüüÏ6ÇÇÇÇÇÇÞÞÞÞÞÞÞÞÞG 
+        ÅÅÅÅgggggggggggggGÇ6üüüÏÏzzÏÏÏüüü666666666666666üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü6üü666666666666666666666666666üüüüüüüüüüüüüüüü66üüüüüüüüüüüÇÇÇÞÇÇÇÞÇÞÞÞÞÞÞÞÞ 
+        ÅÅÅÅÅggggggggggÅÅGÇüüÏÏzÏzÏÏüüüü66666666666666666üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü6666666666666666666666666666üüüüüüüüüüüüüüüüüüüüüüüüüüüÏüÇÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅgÅÅÅÅggggggggggÞ6üÏÏÏÏÏÏüüüü6666666666666666666üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüü66666666666666666666666üüüüüüüüüüÏüüüüüüüüüüüüüüüüÏÏ6ÞÞÇÇÇÞÇÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅÅÅÅÅÅgGGGGGGGGG6üÏÏÏÏüüüüü6666666666666666666666üüüÏüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüÏÏüÏüüÏüüüüüüüüüüü666666666666666666üüüüüüüüüüÏÏüüüüüü6üüüüüüüüÏÏüÞÞÞÞÞÞÞÇÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅÅÅÅÅÅgGGGggGGGÞüüüüüüüüü66666666666666666Ç666666üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüü66666666666üüüüüüüüüüüüÏüÏÏÏüüüüüüüüüüüüüÏÏÏ6ÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅÅÅÅÅgggGGGGGGÞüüüüüüüü666666666666666666ÇÇÇ666666üüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüüüüüüüüüüüüüüÏÏÏÏüüüüüüüüüüüüüüüÏÏÏÏÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅÅggggGGGgGGGG6üüü666666666666666666666ÇÇÇÇÇÇ666666üüüüüüüüüüüüüüüüüüüüüüüüüü66üüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüüüüüüüüüüüÏÏÏüüÏÏüüüüüüüüüüüüüÏÏÏÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        ÅÅggggGGGGGGGGÇüü6666666666666666666ÇÇÇÇÞGGÞÞÇ6666666üüüüüüüüüüüüüüüüüüüüüü66ü66ü66üüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏüüüüüüüüüüüÏÏÏzÇÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        ggggggGgGGGGGG6üüü66666666666666ÇÇÇÞÞÞGGGGGGÞÇÇ66666ÇÇüüüüüüüüüüüüüüüüüüü6üü6üüüüü6üüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüüÏÏzüÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GgggggggGGGGGG6666666666666ÇÇÇÇÞGGGggggggggGÇÇÇÇ6666ÇGÞ6üüüüüüüüüüüüüüüü66666666üüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüÏÏÏÏÏÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞG 
+        GGggggggGGGGGGÞÞÇÞÇÇÇÇÇÞÞÞÞÞGGGggggggggggGÞÇÇ66666666ÞgGÞ6üüüüüüüüüüüüü6ü666üü66ü666üüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüÏÏÏÏÇÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞggÅ 
+        GGGgggggggGGGggGGGGGGGGGggggggggÅÅÅÅgggGÞÞÇÇ666666666ÇÞggGÞÇ66üüüüüüüü66üü66üü666ü6üüüüüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüÏÏÏz6ÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞGgÅggG 
+        GGGGggggggGGggÅggggggggggggggÅÅÅÅgggGGÞÇÇÇ6666666666666ÞGggGÞÇ6666üüü666666666ü6üü6666üüüüüüüüüüüüüüüüüüüÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏÏüüüüüüüüüüüÏÏÏz6ÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞgÅÅÅgGÞÞ 
+        GGGGGGgggggGgÅÅÅÅÅÅÅÅÅÅgÅÅgÅÅÅgggGGÞÞÇÇÇ66666666666666666ÞggggGÞÇÇ6666666666666666666666üüüüüüüü666üüüüüüüüÏÏÏÏÏÏÏÏÏÏÏzzÏzÏÏÏÏÏÏÏüüüüüüüüüüüÏÏÏzÇÞÞÞÞÞÞÞÞÞÞÞÞÞÞGÅÅggGÞÞÞÞÞ 
+        GGGGGGGgÅÅgGgggÅÅÅÅÅÅÅÅgggggGÞÞÞÞÇÇÇÇ6666666666666666666666ÞgggggGGÞÞÇÇÇÇÇ6666666ÇÇÇÇÇÇ6666666666666666üüüüüÏÏÏÏÏÏÏÏzÏÏzzÏzÏÏÏÏÏÏüüüüüüüüüüüÏÏz6ÞÞÞÞÞÞÞÞÞÞÞÞÞgÅÅggÞÞÞÞÞÞÞÞ 
+        GGGGGGGGgÅgGGGgÅÅÅÅÅggGGÞÞÞÇÇÇÇÇÇÇ666666666666666666666666666ÞggggggGGGGÞÞÞÞÞGGGGGGGGGGGGGGÞÞÇÇ666666666üüüüüÏÏÏÏzzzzzzzzzÏÏÏÏÏüüüüüüüüüüüüÏÏÏ6ÞÞÞÞÞÞÞÞÞÞÞGÅÅÅgGÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGgGGGGgggÅÅggGÞÇÇÇÇ666666666666666666666666666666666666ÞGgggggggggggggggggggggggggggGGGÞÞÞÇÇ666666üüüÏÏÏÏzzzzzzzzzzÏÏÏüüüüüü6üüüüüÏÏzÇÞÞÞÞÞÞÞÞÞÞgÅÅÅgGÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGGGGGGGggggggÞÇ666666666666666666666666666666666666666666ÇGggÅÅÅgggggggggggggggggggggggGGGGÞÞÇ66666üüüÏÏÏzzzzzzzzzÏÏÏüüüü6666üüüüÏÏÏÞÞÞÞÞÞÞÞÞÞgÅÅÅGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGGGGgGGggggggGÞÇ66666666666666666666666666666666666666666666ÇÞgggÅggÅÅÅgÅggggÅgggggggggggGGGGÞÇÇ6666üüÏÏÏzzzzzzzzzÏÏüüü6666üüüüüÏÏüÞÞÞÞÞÞÞÞGÅÆÅgGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGGGGGgggggggggGÞÇ6666666666666666666666666666666666666666666666ÇÞÞÞGggÅÅÅÅÅÅÅÅÅÅÅÅÅÅggggggggGGÞÞÇ666üüüÏÏÏzzzzzzzÏÏÏüüü6666üüüüÏÏÇGGGGÞÞÞGÅÆÅgGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGGgGgGgGggggggggGÞ6666666666666666666666666666666666666666666666666ÇÇÇÞÇÞGgÅÅÅÅÅÅÅÅgÅÅggggggggGGÞÇ666üüÏÏÏzzzzzzzÏÏüü666666üüüÏüÞGGGGGGGÅÆÅgGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGGGGGggGgggggggggggggGÞÇ666666666ÇÇ66666666666666ü6666ÇÇ666666666666666666ÇÇÇÇÇÇÇÞGGgÅÅÅÅÅÅgggggggGGÞÇ66üüÏÏÏzzzzzzÏÏüüü666666üüÏÇGGGGGGGÅÅÅgGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGGGGGgGGGgGgggggggggggggggggGÇ666666ÇÇÇÇÇÇÇÇÇÇÇÇ6666666666ÇÇ666666666666666666666666ÇÇÇÇÇÇÞGÅÅÅÅgggggggGÞÇÇ66üÏÏzzzzzzzÏÏü666666üüü6GGGGGGGÅÆÅgGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞ 
+        GGgGGggggggGggGggggggggggggggggGÇ6666ÇÇÇÞÞÞÇÇÇÇÇÇÇÇ666ü666ÇÇÇÇ6ÇÇÇÇÇ6666666Ç6Ç66ÇÇ6Ç6666666ÇÇÇÇÞgggggggggGÞÇ66üÏÏzzzzzzÏÏü6666666ü6ÞGGGGGgÅÆÅgGÞGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞG 
+        GGGgGGGGgggggggggggggggggggggggggGÞÇÞGgggggGÞÞÞÞÇÇÇÇ66ü666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6Ç6666666666666ÇÇÇÇÞGGgggggGÞÇ6üÏÏzzzzzÏÏü6666666ÞGggGGGgÅÆÅgGGGGGGGGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞGGÞ 
+        ggggggggGgggggggggggggggggggggggggÅggÅGGGgÅÆÆÅgGÞÞÇÇÇ6ü666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666666666ÇÇÇÞÞGggGGÇ6üÏÏzzzzÏÏüü6666ÇGÅggggggÅÆÅgGGGGGGGÞGGÞGGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞGGÞÞ 
+        gGGgggggggggggggggggggggggggggggÅÅÅÆgÏzzÏüGÅÆÆÆÆÆgGÞÇ6ü666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666666666ÇÇÇÇÞGGGÞ6üÏÏzzzzÏüü666ÇgÆÆÅggÅÅÆÆÅÅgGGGGGGGGGGGÞGGÞGGÞÞÞÞÞGÞÞÞÞÞGGÞÞG 
+        ggGggGGgggggggggggggggggggggggggggÅgí{ízÇgGÞÞgÅÆÆÆÅGÇ6ü666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞÞÞÞÞÞÞÇÇÇÇÇÇÇÇ6666ÇÇ66666ÇÇÇÞÞÞ6üÏÏzzzÏÏü666GÆÆÆÅgGgÆÆÅÅgGGGGGGGGGGGGGGGÞÞGGÞGGÞGGÞGGGÞGÞÞGG 
+        gggggggggggggggggggggggggÅÅÅÅÅÅÅÅÅÅÏ—ízz{ÇGÅÆÆÆÅggÆÆG6ü666ÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞGGggggggGGÞÞÞÞÞÇÇÇÇÇÇ6666666666ÇÇÇÇÇ6üÏÏzzzÏüüüüGÅgGÇ6üÏÏüGÅggggGGGGGGGGGGGGGGGGGGGGGÞGÞÞGÞGGGGGG 
+        gggggggggggggggggggÅÅÅÅÅgÅÅggÅgÅÅÅG—{ízüÏGÅÆÆÆgÇüÏÞÆÅ6ü666ÇÇÇÇÇÇÇÇÇÇÞÞGggÅÅÅÆÆÆÆÆÆÆÅÅgGÞÞÞÇÇÇÇÇÇ66ÇÇ66Ç6ÇÇÇÇÇ6üÏzzzÏÏüüü6ÇÞÇ66üü6ÇÞgggggggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG 
+        gggggggggggggggggÅÅgÅÅÅÅgÅÅÅÅÅÅÅÅÆÞ—{íí6GgÅÆÆÆgÞÇüGÆÅÇü666ÇÇÇÇÇÇÇÇÞÞGGggÞÇÇ66ÇGÅÆÆÆÆÆÆÆÆÅGGÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6üÏÏzzzÏü6ÇÞÞÞÇÇ66ÇÞÞGgggggggggGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG 
+        ggggggggggggggggÅÅÅggÅgÅÅÅÅÅÅÅÅggGÞ{{ízüGGÅÆÆÆÆÆÆÅÅÆÅ6ü66ÇÇÇÇÇÇÇÇÞÞGggÇüüÏÏüÇgggggÅÅÅÆÆÆÆÆÅgGÞÇÇÇÇÇÇÇÇÇÇÇÇÇ66üÏzzzÏü6ÞGGÞÇÇÞGGÞÞgÅÅgggggggggggGGGGGGGGGGGGGGGGGGGGGGGGGGGG 
+        ggggggggggggggÅÅgÅÅÅÅÅÅÅÅÅÅggGgÆgGGÞzízÇgGÞÞGggGGgÅÆg6ü66ÇÇÇÇÇÇÇÞÞGGgÇüÏzzÏÇgGÞGgÅggggÅÅÆÆÆÆÅGÞÞÇÇÇÇÇÇÇÇÇÇ66üÏzzzÏüÇGÞÞÇÇ6GGÞÞÞgÅÅÅÅggggggggggggGGGGGGGGGGGGGGGGGGGGGGGGGG 
+        ggggggggggggÅÅÅÅÅÅÅÅÅÅÅÅggggÆÆÆgü6ÇÞGÇÏzÏGgggggggÅÅÅÞüü66ÇÇÇÇÇÇÇÞÞGgÞüÏzí{í6ggÅÅÅGÞGgÅÅÅÅÅgÅÅÅGÞÞÇÇÇÇÇÇÇÇÇ6üüÏzízüÇÞÇÇÇ66ÞGÞÞgÆÅggÅÅÅÅggggggggggGGGGGGGGGGGGGGGGGGGGGGGGGG 
+        ggggggggggÅÅÅÅÅÅÅÅÅÅÅgggÅÅÆÆÆÆÆÞüü6ÇÇÞÞGÞÞÇÞÞÞÞÞGGgGüüü66ÇÇÇÇÇÇÇÞGGgÇüÏzíÏÞgggÅÅGÇü6ÇÅÅgÅgGGgÅÅgÞÇÇÇÇÇÇÇÇ66üÏzízüÇÞÞÞÞÇÇÞÞÞGÅÆÆÆÆÆgggÅgggggggggggggGGGGGGGGGGGGGGGGGGGGGGG 
+        ggggggggÅÅÅgÅÅÅÅÅÅgggÅÆÆÆÆÆÆÆÆÆÇüü6ÇÇÞÞÞÞÞGGGGGGGGÞüÏÏ666ÇÇÇÇÇÇÇÞGgG6ÏzízÏÞggÅÅÅGÇ66ÞÆÅÅÅGÇÇÞgÅgÞÇ66666666üzzízüÞÞÞÞÞÞÞÞÞGÅÆÆÆÆÆÆÆÆÆÅggÅggggggggggggggGGGGGGGGGGGGGGGGGGGG 
+        gggggÅÅgÅÅÅÅÅÅÅgggÅÆÆÆÆÆÆÆÆÆÆÆÆÇüüü66ÇÞÞÞÞGGGGGGÞÇüÏÏü66ÇÇÇ6ÇÇÇÇÞGgG6ÏzzzüÞggÅÆÆÅÅÅÆÆÆÅÅÅÞ6ü6ÞÅgÇ6üüÏÏÏÏÏÏÏzííü6GÞÞÇÇÞÞÞgÅÅÆÆÆÆÆÆÆÆÆÆÆÆgGgggggggggggggGGGGGGGGGGGGGGGGGGGG 
+        ggÅÅgÅÅÅgÅÅgggggÆÆÆÆÆÆÆÆÆÆÆÆÆÆÅÞüüü666ÇÇÇÞÞÞÇÇÇ6üüÏÏÏü66ÇÇÇÇÇÇÇÇÞÞGgÇüÏzzÏÇggggÅÆÆÆÆÅggÅgÇÏzÏ6GG6üÏzzzzzízíííüü6ÞÇ6ÇÇÇgÅÅÅÅÅÅÅÆÆÅÆÆÆÆÆÆÆÆÅGggggggggggggggggggGggGggGgGGGGG 
+        ÅgÅÅÅgÅÅgggGgÅÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÅGüüüü666666666üüüÏÏÏÏü66ÇÇÇÇÇÇÇÇÞÞÞÞGgÇÏÏzzÏÇGGÇÇÞÞGÞÞGgGÇÏzÏüÞÞ6ÏzzzzíííííííÏüü66ÇÞGgÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆgGggggggggggggggggggGggGgggggg 
+        ÅÅgÅÅÅggGÞgÅÆÆÆÆÆÆÆÆÆÆÆÅÆÅÅÅÅÅÅg6üüüüü666üüüüÏÏÏÏÏÏü66ÇÇÇÇÇÇÇÇÞÞÞÞÞGGGGÇüzzÏ6GgGÞÞÞGggÞ6ü6ÇÞGÞ6ÏÏzzíííííííízüü6ÞgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÅGGgggggggggggggggggggGggggg 
+        ÅÅÅggGgÅÞÏÇgGGGGÅÆÆÆÅÆÅÅÅÅÅgggGGÇüüü6üüüüüüüÏÏÏÏÏÏü6ÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞÞGGÞÞGGGÞÇ66ÇGgggGGÞÞÞÞÇÇ6üÏÏzzzíííííííízüGÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÆÆÆÆÆÆÆÆÅgGggggggggggggggggggggggg 
+        ggGGÅÆÆÆÆÅÞGÞÞgGGÞÞÞGggggggggGGGÞ6ü6666666üÏÏÏÏÏü666ÇÇÇÇÇÇÇÇÇÇÇÇÞÞÞÞÞGGÞÞÞÞÞGGGgGGGGÞÞÇÇÇÇ66üüÏÏzzííííííííz6ÅÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÅGggggggggggggggggggggg 
+        ggÅÆÆÆÆÆÆÆÆÅGGGÞGgÅÅgGÞÞÞGGGGgggG6ü666666üÏÏÏÏÏü66ÇÇÇÇÇÇÇÇÇÇÇ6ÇÇÇÇÞÞÞÞÞGÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÇÇÇ6üüÏÏzzzíííííízÏÞÆÅÅÅgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÅGGgggggggggggggggggg 
+        ÆÆÆÆÆÆÆÅÆÅÅÅÅggGGGGGggggGGÞÞÞÞGggÇü6666üÏÏÏÏÏÏü666ÇÇÇÇÇÇÇÇÇÇ666ÇÇÇÇÇÇÇÇÞÞÞÞÞÞÞÞÞÞÞÞÞÞÞÇ66üüÏÏÏÏzzzzzzzzzüÅÆÅggÅÅgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÆÆÆÆgGGggggggggggggggg 
+        ÆÆÆÅÆÆÆÅÅÅÅÅÅÅÆÆÅÅgGGGGgggÅgGÞGgGÞü666üÏÏÏÏÏÏü666ÇÇÇÇÇÇÇÇÇÇÇÇÇ66ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666üüüüüÏÏÏÏÏzzzzzz6ÅÅgggggggÅggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÅÅÆÆÅÆÆÆÆÆÆÅgGggggggggggggg 
+        ÅÆÅÅÆÅÅÆÆÅÅÅÅÅÆÅÅÅÅÅÅgGGgGgÅÆÆÆÅÅG66üüÏÏÏÏÏÏü66666ÇÇÇÇÇÇÇÇÇ6ÇÇ6ÇÇ666666666ÇÇÇÇÇ6666666666üüüüüüüÏÏÏÏÏÏ6gGGGggGgggÅggÅggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÆÆÆÆÆÅgGggggggggggg 
+        ÅÅÆÅÅÅÅÅÅÅÅÅÅÅÆÅÅÅÅÅÅÅÅÅgÅÅÅÅÅÅÅÅg6üüÏÏÏÏÏÏü66666666666666666ÇÇÇÇÇ6Ç66666666666666666666666666üüüüüüÏüGgGGGgÇÞgGggggÅggÅgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÆÆÅÆÆÆÆÆÅGggggggggg 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggggggggggggÇüüÏÏÏÏÏÏüü66666666666666666666ÇÇÇÇÇ666ÇÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇ666666666üüüÏÇGGGGgG6ÞÞGGgggÅgÅgÅÅgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÅÆÆÆÆÆÆÅgGgÅÅÅÅÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggGGGGGGGggÇüÏÏÏÏÏÏÏüüüüüüüüüüüüüüüü666666666ÇÇ6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ666666üüüÏ6GGgÅÅgÇÇGGGGGGggggggÅggÅÅÅgÞÞgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÆÅÅÆÆÆÅÆÆÅgGgÅÅÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggGGGGGGGGÞüÏÏÏÏÏÏÏüüüüüÏÏÏÏÏÏÏÏÏÏÏÏüüü6666666ÇÇÇ66ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6666üüüÏÏ6Ç6ÞgÆgÞÇGGGGGGGGGGggggÅggÅGÞG6üzgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÅÅÅÆÆÅÆÆÆÆÅggg 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅgÅÅÅÅÅÅgggGGGGGGG6ÏÏÏÏÏÏÏüüüüÏÏÏÏÏzzzzzzzÏÏÏüüüü66666ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666üüüÏÏ6Þ6zÏÇÞG6GGGGGÞÞÞGGGGGGggÅgÞGÅgü ÞÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÅÆÅÅÅÆÅÅÆÅÅg 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgggGGGGGGÞüÏÏÏÏÏÏÏüüÏÏÏzzzzzzíízzzzÏÏÏüüüüüüü6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666üüüÏÏüGGÞüÏü6ÇÞGÞÞÞÞÞÞÞÞÞGGGGGGGÞGÅgGíÏGÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÆÅÅÆÆÅÆÅÆÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggGGGGGGÇÏÏÏÏÏÏÏÏÏÏzzzzííííííííízzÏÏÏÏÏÏÏüüü6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ66666üüüÏÏÏGÅÅgÞÇÇÇÇÇÇÇÞÞÞÞÞGGÞÞGgÅÅÅÅÅÅgG6ÏGgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÅÆÅÅÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgGGGGÞÞÇÏÏÏÏÏÏÏÏÏzzzííííí{{{{{íízzzÏÏÏÏÏÏÏü6ÇÇÇÇÇÞÇÇÇÇÇÇÇÇÇÇÇÇÇ66666üüüÏzÏÞÅÆÆg6üÞGÞÞÞÞÞÞÞÞÞÞÞÞÞGGGGgÅÆÅgÞÇGGgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÆÆÅÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgÅggggGÇüÏzzzzzzzzzzííí{{{{{{{íízzzzzÏÏÏÏÏüü6ÇÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6666üüüÏÏÏÏÇÅÅÅÅÅgÞÞggGGÞÞÞÞÞÞÞGGGGGGGGGGGgGggGgggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÆÅÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgÅÅgÅggggÇÏÏzzzzzzzzííííí{{{{{{{ííízzzzÏÏÏÏÏü6ÇÇÇÇÞÞÇÇÇÇÇÇÇÇÇÇÇÇÇ6666üüüÏÏzzÇÅÅÅÅÅÅÅgGÅÅggGGGGGGGGGGGGGGGGGGÞÞÞGÞÞGgÅGgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgÅÅgggÅgggÞ6üÏzzzzzzíííííí{{{{{{{{ííízzzÏÏÏÏÏü6ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ6666üüüÏÏÏÏÏ6ÅÆÅÅÅÅÅÅÅÅÅÅÅgggGGGGGGGGGGGGGGGGGGÞÞÞÞGGGGgggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅÅÅÅÅÆÅÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggÅÅgÅgggÞÏÏÏzzzzzííííí{{{{{{{{{{ííízzÏÏüüü666ÇÇÇÇÇÇÇÇÇÞÇÇÇÇÇÇÇÇÇ666üüüÏÏÏÏzz6gÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅggggGGGGGGgggGGGGGGGGGGÞÞGGGgÅggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÅÅÆÅÅÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅgÅÅgÅggÅggggÞüzÏÏzzzzzíííííí{{{{{{íííízzÏüü666666666666ÇÇÇÇÇÇÞÇÇÇÇÇ6666üüüÏÏÏÏzz6gÆÅÆÆÆÆÆÅÅÅÆÆÆÅÅÅÅÅÅgggggggggggggggggGGGGGGGGGGGggggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÆÆÅ 
+        ÅÅÅÅÅÅÅÅÅÅÅgÅggÅÅgggggggGÇüüüÏÏzzzíííííííííííízzzÏü666üüüÏÏÏüüüüü666ÇÇÇÇÇÇÇÇÇ6666üüÏÏÏÏÏzz6gÅÅÅÆÆÆÆÆÆÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅggggggggggggggggGGGGGGGGGGggÅGgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÅ 
+        ÅÅÅÅÅÅÅÅÅggÅÅggggggggÅÆÅGÇ6666üÏÏzzzííííízzzzzÏüü6üüÏÏÏÏzzzzzÏÏÏÏüü666ÇÇÇÇÇÇÇ666üüüÏÏÏÏÏÏ6gÆÅÅÅÅÅÆÅÅÅÆÆÆÆÆÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgggggggGGGGGGGGGGgggÅgGÅÅÅÅÅÅÅÅÅÅÅÆÅÅÆÆÅÆÆÆÆ 
+        ÅÅÅÅÅÅÅÅÅÅÅggÅgggggggÅÆgGG666666üÏÏÏzzzzzÏÏÏüüüüüüÏÏzzzzzzzíízzzzÏÏüü66ÇÇÇÇÇÇ666üüÏÏÏÏÏÏ6gÅÅÅÆÅÅÅÅÆÆÅÅÅÆÆÆÆÅÆÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅggggggggggGgGGGGggÅÅgGgÅÅÅÅÅÅÅÅÆÅÅÆÆÅÅÆÆÆ 
+        ÅÅÅÅÅÅÅgÅÅgggggggggggÆÅgggGÇÇÇÇÇ66üüüüüüüü6666üüÏÏÏzzzííííííííízzzzÏüü66ÇÇÇÇÇ66üüÏÏÏÏÏÏ6gÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÅÅÆÅÆÆÆÆÆÆÅÅÅÅÅÆÅÅgggÅÅÅÅggggggggggGgggggÅÅÅÅggÅÅÅÅÅÅÅÅÆÅÅÆÅÆÅÅ 
+        ÅÅÅÅÅÅÅÅÅggÅgggggggGÅÆÅgggÅgÞÇÇÇÇÇÇ6666ÇÇÇÇÇ66üüüÏÏzzzzzzzzzzíííízzzÏüü6ÇÇÇÇ66üüüÏÏÏÏÏ6gÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÆÆÅÅÆÅÆÆÆÆÆÆÆÆÅÆÆÆÅÅGGÅÅÅÅÅgggggggggggggÅÅÅÅÅÅgggÅÆÅÅÅÆÅÆÆÆÆÆÆ 
+        ÅÅÅÅÅÅÅgÅgggggggggggÅÅÅgggÅÅÅÅgGGGÞ66ÇÇÇÞÞÞÞGGÞÞÞÇÇ6666ü66666üÏÏzzzzÏÏü6ÇÇÇÇ66üüÏÏÏÏÏ6gÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÅÅÆÆÆÆÆÆÆÆÆÆÆÆÆÆÅggÅÅÅÅÅÅÅgggggggggÅÅÅÅÅÆÆÅÅgÅÅÆÆÅÅÅÆÅÆÆÆ 
+        ÅÅÅÅÅÅÅgÅÅggggggggggÅÅÅÅÅÅÅÅÅÅÅÅÅÅG666ÇÞÞÞÞÞÞÞÞÞÞÇÇ66üüüÏÏÏÏüÇÞGÇüÏzzÏüü6ÇÇÇ66üüÏÏÏüÇgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÅÅÅÆÆÆÆÆÆÆÆÆÆÆÅgÅÅÅÅÅÅÅÅÅÅÅgggggÅÅÅÅÅÅÆÅÅÅÅÅÅÅÆÆÅÆÅÆÆ 
+        ÅÅÅÅÅÅÅgÅgggggggggggÅÅÅÅÅÅÅÅggggggG66ÇÇGgggGÞÞÞÞÞÇÇ66üüÏÏzííízzÏüÞG6ÏÏü6ÇÇÇÇ6üüüÏÏüÇgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆÆÆÅÅÅÅÆÆÅÅÆÆÆÅgÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÅÅÅÅÅÅÆÆÆÆÆÆ 
+        ÅÅÅÅÅÅÅÅÅgggggggggÅÅÅÅÅÅÅÅÅÅggggggG66ÇÇGggggggGÞÞÞÇÇÇÇ6üüüüüÏÏÏÏÏÏüÇÇüü6ÇÇÇ66üüüü6ÞGggÅgggGÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÅÆÅÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÅÅÅÅÅÅÅÆÆÆÆ 
+        ÅÅÅÅÅÅÅÅÅggggggggÅÅÅÅÅÅÅÅÅÅgggÅÅggÞ6ÇÇÞGgggggggGÞÞÇÇÇÇÇÇÇÇÇ66üüüÏÏüüÇÇ66ÇÇÇ66üüü6ÞÞÞgggggGGÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÅÆÅÅÆÅÆÆÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆÆÆÆÅÅÅÅÅÅÅÅÅÅÆÆÅÆÆÆÆÅÅÅÅÅÅÅÆÆ 
+        ÅÅÅÅÅggggÅÅggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgGGÞ6ÇÇÞGggÅgggggGÞÞÞÇÇÇÇÇÇÇÇ66666üüüüÇÞÇÇÇÇ6üü6ÇÞGGGGGggGGggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÅÆÆÆÆÅÅÅÅÅÅÅÆÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆÆÆÆÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÆÅÅÆÆÅÆ 
+        ÅÅgGGgggggÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅgggggGGGGÞÇÇÞGgggggggGGÞÞÞÞÞÞÇÇÇÇÇÇ6666üüüüü6ÇÇÇÇ6666ÇGGGGGgGGGGgÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÅÅÅÅÅÅÅÅÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆÆÆÆÆÆÅÅÅÅÅÆÆÆÆÆÆÆÆÆÆÆÅÆÆÆ  -->
+
+        <div class="marquee">
+            <div class="marqueeTrack">
+                <span>
+                    you found the contact page • this probably wasn’t worth it • but since you're here • hi •
+                    yes this email works (most of the time) • no i will not fix your printer •
+                    if you email me something interesting i might respond • if not i might still respond •
+                    this site exists mostly for future me • so if you're not me that's kind of crazy •
+                    anyway • masonmckeever@chedar.dev • don't do anything weird with it •
+                    or do • i'm not your dad • okay maybe stop now • actually keep going •
+                    this text just loops forever • there is no end • seriously • it keeps going •
+                    like actually forever • you can stop reading anytime • or don't •
+                    i can't stop you • anyway yeah that's it •
+                </span>
+
+                <!-- duplicate for seamless loop -->
+                <span>
+                    you found the contact page • this probably wasn’t worth it • but since you're here • hi •
+                    yes this email works (most of the time) • no i will not fix your printer •
+                    if you email me something interesting i might respond • if not i might still respond •
+                    this site exists mostly for future me • so if you're not me that's kind of crazy •
+                    anyway • masonmckeever@chedar.dev • don't do anything weird with it •
+                    or do • i'm not your dad • okay maybe stop now • actually keep going •
+                    this text just loops forever • there is no end • seriously • it keeps going •
+                    like actually forever • you can stop reading anytime • or don't •
+                    i can't stop you • anyway yeah that's it •
+                </span>
+            </div>
+        </div>
+        <section class="projects">
+            <h3>Other Ways To Reach Me</h3>
+            <div class="projectGrid">
+                <div class="projectCard">
+                    <h4>Carrier Pigeon</h4>
+                    <p>Unreliable but respectable.</p>
+                </div>
+
+                <div class="projectCard">
+                    <h4>Yodeling</h4>
+                    <p>Still in beta.</p>
+                </div>
+
+                <div class="projectCard">
+                    <h4>Yelling My Name</h4>
+                    <p>Works if I'm nearby.</p>
+                </div>
+
+                <div class="projectCard">
+                    <h4>Calling me</h4>
+                    <p>I think you probably need my number.</p>
+                </div>
+
+                <div class="projectCard">
+                    <h4>Raiding a Scientology building</h4>
+                    <p>Make sure to post online! (I won't see it i can't use social media)</p>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <p>Hope you get what you came here for cuz you definitely didn't come here on purpose</p>
+        </section>
+    </main>
     <script>
         function toggleMenu() {
             document.getElementById("menu").classList.toggle("active");
